@@ -1,0 +1,39 @@
+*
+{
+
+
+
+    /* outline: 1px solid red !important; */
+
+
+
+
+
+    /* animation-name: Appearance;
+    animation-duration: 2s;
+    transition-timing-function: ease; */
+    font-family: "Tiny5", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(8, 224, 0);
+}
+
+
+html
+{
+    background-color: black;
+    scroll-behavior: smooth;
+    scrollbar-color: rgb(8, 224, 0) black;
+}
+
+body
+{
+    margin: 0;
+}
+
+.matrix
+{
+    z-index: -10;
+    position: absolute;
+}
+
