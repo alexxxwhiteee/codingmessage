@@ -1,22 +1,18 @@
+<script setup>
+
+</script>
 
 <template>
-
-<div>
 
    <button>
     <slot />
    </button>
 
-</div>
-
-
-
-
 </template>
 
 <style>
 
-button
+/* button
 {
     color: black;
     display: flex;
@@ -27,7 +23,7 @@ button
     height: 100%;
     width: 100%;
     font-size: 20px;
-    border: 1px solid black;
+    border: 0;
 }
 
 button:hover
@@ -35,8 +31,6 @@ button:hover
     color: rgb(8, 224, 0);
     background-color: black;
     border: 1px solid rgb(8, 224, 0);
-}
-
-
+} */
 
 </style>

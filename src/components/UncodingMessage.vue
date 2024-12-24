@@ -1,43 +1,40 @@
 <script setup>
+import { ref } from 'vue'
+import Manual from './Manual.vue'
+import Number from './Number.vue'
+import Uncodingtext from './UncodingText.vue'
 
+const manual = ref(true)
 
+const number = ref('')
+
+const component = defineModel('Component')
+
+function changeComponent(name){
+    component.value = name
+}
 
 </script>
 
-
-
-
-
-
-
-
-
-
 <template>
+    
+    <div>
 
-<div class="uncode">
-UNCODING
-</div>
+      <div v-if="!manual">
+        <Number v-model:manual="manual" v-model:number="number" @nextComponent="changeComponent(Uncodingtext)"></Number> 
+      </div>
+
+      <div v-else="manual">
+        <Manual v-model:manual="manual">
+          ДЛЯ ТОГО, ЧТОБЫ РАСШИФРОВАТЬ СООБЩЕНИЕ ВАМ НУЖНО ВВЕСТИ КОДОВОЕ ЧИСЛО, ВЫ ДОЛЖНЫ БЫЛИ ПОЛУЧИТЬ ЕГО ВМЕСТЕ С ЗАШИФРОВАНЫМ СООБЩЕНИЕМ, 
+          БЕЗ ЭТОГО ЧИСЛА РАСШИФРОВАТЬ ВАШЕ СООБЩЕНИЕ БУДЕТ НЕВОЗМОЖНО.
+        </Manual>
+      </div>
+
+    </div>
 
 </template>
 
-
-
-
-
-
-
-
-
 <style>
-
-.uncode
-{
-  height: 100px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
 
 </style>

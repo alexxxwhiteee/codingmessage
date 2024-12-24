@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue'
 import Mybutton from './MyButton.vue'
 import Codingmessage from './CodingMessage.vue'
 import Uncodingmessage from './UncodingMessage.vue'
@@ -12,40 +11,20 @@ function changeComponent(name){
 
 </script>
 
-
-
 <template>
 
+  <div class="start-screen">
 
+    <div class="ss__buttons">
+    <Mybutton class="ss__button1" @click="changeComponent(Codingmessage)"> ЗАШИФРОВАТЬ СООБЩЕНИЕ </Mybutton>
+    <Mybutton class="ss__button2" @click="changeComponent(Uncodingmessage)"> РАСШИФРОВАТЬ СООБЩЕНИЕ </Mybutton>
+    </div>
 
-
-<!-- <div class="main">
-  <div class="main__button">
-  <Mybutton class="main__button1" @click="$emit('change', 1)"> ЗАШИФРОВАТЬ СООБЩЕНИЕ </Mybutton>
-  <Mybutton class="main__button2" @click="$emit('change', 2)"> РАСШИФРОВАТЬ СООБЩЕНИЕ </Mybutton>
   </div>
-</div> -->
-
-<div class="main">
-  <div class="main__button">
-  <Mybutton class="main__button1" @click="changeComponent(Codingmessage)"> ЗАШИФРОВАТЬ СООБЩЕНИЕ </Mybutton>
-  <Mybutton class="main__button2" @click="changeComponent(Uncodingmessage)"> РАСШИФРОВАТЬ СООБЩЕНИЕ </Mybutton>
-  </div>
-</div>
-
-
-
-
 
 </template>
 
-
-
-
-
 <style>
-
-
 
 /* @keyframes Appearance 
 {
@@ -54,7 +33,7 @@ function changeComponent(name){
     100% {opacity: 1;}
 } */
 
-.main
+.start-screen
 {
   min-height: 100vh;
   display: flex;
@@ -63,7 +42,7 @@ function changeComponent(name){
   align-items: center;
 }
 
-.main__button
+.ss__buttons
 {
   display: flex;
   flex-direction: row;
@@ -74,16 +53,28 @@ function changeComponent(name){
   transition-timing-function: ease-in-out;
 }
 
-.main__button1,
-.main__button2
+.ss__button1,
+.ss__button2
 {
+    color: black;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(8, 224, 0);
+    font-size: 20px;
+    border: 0;
     width: 300px;
     height: 100px;
     margin:100px;
 }
 
-
-
-
+.ss__button1:hover,
+.ss__button2:hover
+{
+    color: rgb(8, 224, 0);
+    background-color: black;
+    border: 1px solid rgb(8, 224, 0);
+}
 
 </style>
