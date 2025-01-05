@@ -43,7 +43,6 @@ const manual = defineModel('manual')
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center; 
     font-size: 20px;
     line-height: 50px;
     border: 1px solid rgb(8, 224, 0);

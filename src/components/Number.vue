@@ -1,21 +1,32 @@
 <script setup>
+import {ref} from 'vue';
 import Mybutton from './MyButton.vue'
 
 const manual = defineModel('manual')
 
 const number = defineModel('number')
 
+const buttonClass = ref('number__button2__disabled')
+
+
 function checkNumber(){
+  let x = number.value.length - 9
     for(let i=0; i<=number.value.length; i++){
         if (isNaN(number.value[i]) == true){
         number.value=number.value.replace(/[^0-9]/g, '')
     }
     }
-    if(number.value > 999999999){
-        number.value=number.value.slice(0, -1)
+    if(number.value.length > 9){
+        number.value=number.value.slice(0, -x)
     }
     if(number.value == 0){
         number.value=''
+    }
+    if(number.value.length == 0){
+      buttonClass.value = "number__button2__disabled"
+    }
+    if(number.value.length >= 1){
+      buttonClass.value = "number__button2__enabled"
     }
 }
 
@@ -26,7 +37,7 @@ function checkNumber(){
     <div class="number">
         
         <div class="number__div">
-            <input class="number__input" @keyup="checkNumber" type="input" v-model="number" size=45 placeholder="ВВЕДИТЕ ВАШЕ КОДОВОЕ ЧИСЛО В ЭТО ПОЛЕ"/>
+            <input class="number__input" @input="checkNumber" type="input" v-model="number" size=45 placeholder="ВВЕДИТЕ ВАШЕ КОДОВОЕ ЧИСЛО В ЭТО ПОЛЕ"/>
             <Mybutton class="number__button1" @click="manual=!manual"> ? </Mybutton>
         </div>
 
@@ -34,7 +45,7 @@ function checkNumber(){
         <h1>ВАШЕ КОДОВОЕ ЧИСЛО: {{ number }}</h1>
         </div>
 
-        <Mybutton class="number__button2" @click="$emit('nextComponent')"> ПРОДОЛЖИТЬ </Mybutton>
+        <Mybutton :class="buttonClass" @click="$emit('nextComponent')"> ПРОДОЛЖИТЬ </Mybutton>
 
     </div>
 
@@ -91,7 +102,7 @@ function checkNumber(){
 }
 
 .number__button1,
-.number__button2
+.number__button2__enabled
 {
   color: black;
   display: flex;
@@ -108,16 +119,33 @@ function checkNumber(){
   border: 1px solid rgb(8, 224, 0);
 }
 
-.number__button2
+.number__button2__enabled
 {
   border: 0;
   height: 60px;
   width: 200px;
-  margin:30px;  
+  margin:30px;
+  pointer-events: auto;
+}
+
+.number__button2__disabled
+{
+  color: rgb(118, 118, 118);
+  border: 1px solid rgb(8, 224, 0);
+  background-color: black;
+  height: 60px;
+  width: 200px;
+  margin:30px;
+  font-size: 20px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
 }
 
 .number__button1:hover,
-.number__button2:hover
+.number__button2__enabled:hover
 {
   color: rgb(8, 224, 0);
   background-color: black;

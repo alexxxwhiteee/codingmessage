@@ -8,7 +8,7 @@ const manual = ref(false)
 
 const component = defineModel('Component')
 
-const text = ref('123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 ');
+const text = ref('123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 ');
 
 function changeComponent(name){
     component.value = name
@@ -28,26 +28,26 @@ function copiedText() {
 
     <div>
 
-        <div class="coded-message" v-if="!manual">
+        <div class="uncoded-message" v-if="!manual">
 
-            <div class="cm__message">
+            <div class="um__message">
             
-            <div class="cm__text">
-                 {{ text }}
-            </div>
-            
-            <Mybutton class="cm__button" @click="copiedText()"> СКОПИРОВАТЬ СООБЩЕНИЕ </Mybutton>
+                <div class="um__text">
+                    {{ text }}
+                </div>
+                
+                <Mybutton class="um__button" @click="copiedText()"> СКОПИРОВАТЬ СООБЩЕНИЕ </Mybutton>
 
             </div>
 
-           <Mybutton  class="cm__ss-button" @click="changeComponent(Startscreen)"> ВЫЙТИ </Mybutton>
+            <Mybutton  class="um__ss-button" @click="changeComponent(Startscreen)"> ВЫЙТИ </Mybutton>
 
         </div>
 
         <div v-else="manual">
         
             <Loadingscreen @changeManual="loadingScreen()">
- 
+               
             </Loadingscreen>
 
         </div>
@@ -59,7 +59,7 @@ function copiedText() {
 
 <style>
 
-.coded-message
+.uncoded-message
 {
     height: 100vh;
     display: flex;
@@ -68,13 +68,13 @@ function copiedText() {
     align-items: center;
 }
 
-.cm__message
+.um__message
 {
     margin: 50px 50px;
     font-size: 20px;
 }
 
-.cm__text
+.um__text
 {
     height: 30vh;
     width: 40vw;
@@ -88,8 +88,8 @@ function copiedText() {
     align-items: center;
 }
 
-.cm__button,
-.cm__ss-button
+.um__button,
+.um__ss-button
 {
     color: black;
     display: flex;
@@ -101,21 +101,21 @@ function copiedText() {
     border: 0;
 }
 
-.cm__button
+.um__button
 {
     width: 100%;
     border: 1px solid rgb(8, 224, 0);
 }
 
-.cm__ss-button
+.um__ss-button
 {
     height: 60px;
     width: 200px;
     margin:30px; 
 }
 
-.cm__button:hover,
-.cm__ss-button:hover
+.um__button:hover,
+.um__ss-button:hover
 {
     color: rgb(8, 224, 0);
     background-color: black;
