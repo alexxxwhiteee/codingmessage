@@ -2,17 +2,15 @@
 import { ref } from 'vue'
 import Loadingscreen from './LoadingScreen.vue'
 import Mybutton from './MyButton.vue'
-import Startscreen from './StartScreen.vue'
+import dataFunctions from '/Users/Aleksandr/vue-project/src/assets/dataStorage.js'
 
 const manual = ref(false)
 
-const component = defineModel('Component')
+
 
 const text = ref('123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 ');
 
-function changeComponent(name){
-    component.value = name
-}
+
 
 function loadingScreen(){
     manual.value = false
@@ -20,6 +18,10 @@ function loadingScreen(){
 
 function copiedText() {
     navigator.clipboard.writeText(text.value);
+}
+
+function reloadPage(){
+   return location.reload()
 }
 
 </script>
@@ -40,7 +42,7 @@ function copiedText() {
 
             </div>
 
-            <Mybutton  class="um__ss-button" @click="changeComponent(Startscreen)"> ВЫЙТИ </Mybutton>
+            <Mybutton  class="um__ss-button" @click="reloadPage"> ВЫЙТИ </Mybutton>
 
         </div>
 

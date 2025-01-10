@@ -1,34 +1,15 @@
 <script setup>
-import {ref} from 'vue';
+import { ref } from 'vue';
 import Mybutton from './MyButton.vue'
 
-const manual = defineModel('manual')
+defineProps({
+  clss: String,
+})
 
 const number = defineModel('number')
 
-const buttonClass = ref('number__button2__disabled')
+const manual = defineModel('manual')
 
-
-function checkNumber(){
-  let x = number.value.length - 9
-    for(let i=0; i<=number.value.length; i++){
-        if (isNaN(number.value[i]) == true){
-        number.value=number.value.replace(/[^0-9]/g, '')
-    }
-    }
-    if(number.value.length > 9){
-        number.value=number.value.slice(0, -x)
-    }
-    if(number.value == 0){
-        number.value=''
-    }
-    if(number.value.length == 0){
-      buttonClass.value = "number__button2__disabled"
-    }
-    if(number.value.length >= 1){
-      buttonClass.value = "number__button2__enabled"
-    }
-}
 
 </script>
 
@@ -37,7 +18,7 @@ function checkNumber(){
     <div class="number">
         
         <div class="number__div">
-            <input class="number__input" @input="checkNumber" type="input" v-model="number" size=45 placeholder="ВВЕДИТЕ ВАШЕ КОДОВОЕ ЧИСЛО В ЭТО ПОЛЕ"/>
+            <input class="number__input" @input="$emit('checkNumber')" type="input" v-model="number" size=45 maxlength="9" placeholder="ВВЕДИТЕ ВАШЕ КОДОВОЕ ЧИСЛО В ЭТО ПОЛЕ"/>
             <Mybutton class="number__button1" @click="manual=!manual"> ? </Mybutton>
         </div>
 
@@ -45,7 +26,7 @@ function checkNumber(){
         <h1>ВАШЕ КОДОВОЕ ЧИСЛО: {{ number }}</h1>
         </div>
 
-        <Mybutton :class="buttonClass" @click="$emit('nextComponent')"> ПРОДОЛЖИТЬ </Mybutton>
+        <Mybutton :class="clss" @click="$emit('nextComponent')"> ПРОДОЛЖИТЬ </Mybutton>
 
     </div>
 

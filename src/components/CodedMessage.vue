@@ -1,18 +1,10 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import Loadingscreen from './LoadingScreen.vue'
 import Mybutton from './MyButton.vue'
-import Startscreen from './StartScreen.vue'
+import dataFunctions from '/Users/Aleksandr/vue-project/src/assets/dataStorage.js'
 
 const manual = ref(false)
-
-const component = defineModel('Component')
-
-const text = ref('123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789 ');
-
-function changeComponent(name){
-    component.value = name
-}
 
 function loadingScreen(){
     manual.value = false
@@ -21,6 +13,43 @@ function loadingScreen(){
 function copiedText() {
     navigator.clipboard.writeText(text.value);
 }
+
+function reloadPage(){
+   return location.reload()
+}
+
+const arrs = ref({1: ["А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ы", "Ь", "Э", "Ю", "Я", ".", ",", ":", "-", "!", "?", " ", "(", ")", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+2: ["Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ы", "Ь", "Э", "Ю", "Я", ".", ",", ":", "-", "!", "?", " ", "(", ")", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "А"]})
+
+const  { numberCode }  = dataFunctions.useNumberData()
+
+const  { textCode }  = dataFunctions.useTextData()
+
+const text = ref('');
+
+function codedMessage(){
+    let x = arrs.value[numberCode.value]
+    let y = textCode.value.split('')
+    let z = []
+
+    for(let i=0; i<y.length; i++){
+        for(let j=0; j<x.length; j++){
+            if(y[i] == x[j]){
+                z.push(j)
+            }
+        }
+    }
+    text.value=z.join(', ')
+}
+
+
+
+onMounted(() => { 
+    codedMessage()
+})
+
+
+
 
 </script>
 
@@ -40,7 +69,7 @@ function copiedText() {
 
             </div>
 
-           <Mybutton  class="cm__ss-button" @click="changeComponent(Startscreen)"> ВЫЙТИ </Mybutton>
+           <Mybutton  class="cm__ss-button" @click="reloadPage"> ВЫЙТИ </Mybutton>
 
         </div>
 

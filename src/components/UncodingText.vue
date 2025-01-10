@@ -2,8 +2,8 @@
 import { ref } from 'vue'
 import Manual from './Manual.vue'
 import Text from './Text.vue'
-import Mybutton from './MyButton.vue'
 import Uncodedmessage from './UncodedMessage.vue'
+import dataFunctions from '/Users/Aleksandr/vue-project/src/assets/dataStorage.js'
 
 const manual = ref(true)
 
@@ -15,6 +15,8 @@ function changeComponent(name){
     component.value = name
 }
 
+const { textCode }  = dataFunctions.useTextData()
+
 const text = ref('')
 
 const textSymbols = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ",", " "]                                
@@ -23,6 +25,10 @@ function checkText(){
     let x = Array.from(text.value.toUpperCase())
     let textEdited = x.filter(symbol => textSymbols.includes(symbol)).join('');
     text.value=textEdited
+    if (text.value[0] == ',' || text.value[0] == ' '){
+        text.value = ''
+    }
+    textCode.value = text.value
 }
 
 </script>
@@ -40,7 +46,7 @@ function checkText(){
             <Manual v-model:manual="manual">
                 КОДОВОЕ ЧИСЛО УСПЕШНО СОХРАНЕНО! <br /> 
                 ДАЛЕЕ ВАМ НУЖНО ВВЕСТИ СООБЩЕНИЕ КОТОРОЕ ВЫ ХОТИТЕ РАСШИФРОВАТЬ. <br />
-                ОБРАТИТЕ ВНИМАНИЕ НА ТО, ЧТО ПОЛУЧЕННОЕ ВАМИ СООБЩЕНИЕ НЕ ДОЛЖНО БЫТЬ ДЛИННЕЕ 400 СИМВОЛОВ И ДОЛЖНО СОСТОЯТЬ ТОЛЬКО ИЗ: <br /> 
+                ОБРАТИТЕ ВНИМАНИЕ НА ТО, ЧТО ПОЛУЧЕННОЕ ВАМИ СООБЩЕНИЕ НЕ ДОЛЖНО БЫТЬ ДЛИННЕЕ 400 СИМВОЛОВ, НЕ ДОЛЖНО НАЧИНАТЬСЯ С ЗАПЯТОЙ ИЛИ ПРОБЕЛА И ДОЛЖНО СОСТОЯТЬ ТОЛЬКО ИЗ: <br /> 
                 <ul class="ut__ul-text">
                         <li>ЦИФР ОТ 0 ДО 9</li>
                         <li>ПРОБЕЛОВ</li>

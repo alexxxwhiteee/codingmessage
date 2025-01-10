@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import Mybutton from './MyButton.vue'
 
 const div = ref(false)
@@ -15,7 +15,7 @@ const first = ref('ОБРАБОТКА ДАННЫХ')
 function persentsCounter(){
     let x = setInterval(function(){
     count.value++
-    if (count.value == 10){
+    if (count.value == 100){
             clearInterval(x)
         }
         }, 50)
@@ -27,19 +27,18 @@ function loadingMessage(){
     if (head.value == '....'){
             head.value = ''
         }
-    if (count.value == 10){
+    if (count.value == 100){
         z = setTimeout( function() {
-        div.value = true
-        head.value = ''
-        first.value = 'УСПЕШНО!'}, 2000)
+        div.value = true }, 2000)
         clearInterval(y)
     }
         }, 400)
 }
 
-loadingMessage()
-
-setTimeout(persentsCounter, 2000)
+onMounted(() => { 
+    loadingMessage(),
+    setTimeout(persentsCounter, 2000)
+})
 
 </script>
 

@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import Mybutton from './MyButton.vue'
 
 const minLength = ref(1)
@@ -28,7 +28,7 @@ function size(){
         text__textArea.value.height = z + (20*d) + 'px'
         height.value = y
     }
-    if (y < height.value){
+    if (y < height.value ){
         text__textArea.value.height = z - (20*d) + 'px'
         height.value = y
     }
@@ -39,6 +39,10 @@ function size(){
       buttonClass.value = "text__button2__enabled"
     }
 }
+
+onMounted(() => { 
+    size() 
+})
 
 </script>
 
