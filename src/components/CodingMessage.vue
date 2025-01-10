@@ -34,23 +34,15 @@ function checkNumber(){
     if (number.value.length == 0){
      buttonClass.value="number__button2__disabled"
     }
-  numberCode.value = number.value
-}
-
-function gg() {
+    
     numberCode.value = number.value.split('').map(item => +item).reduce((acc, number) => acc + number)
-    console.log(numberCode.value)
-
-
-
     if (numberCode.value <= 2){
         return
     }
     numberCode.value = numberCode.value.toString().split('').map(item => +item).reduce((acc, number) => acc + number)
-    
-    console.log(numberCode.value)
+}
 
- } 
+
 
 
 </script>
