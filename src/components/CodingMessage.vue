@@ -36,7 +36,7 @@ function checkNumber(){
     }
     
     numberCode.value = number.value.split('').map(item => +item).reduce((acc, number) => acc + number)
-    if (numberCode.value <= 2){
+    if (numberCode.value <= 52){
         return
     }
     numberCode.value = numberCode.value.toString().split('').map(item => +item).reduce((acc, number) => acc + number)

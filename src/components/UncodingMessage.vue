@@ -33,8 +33,13 @@ function checkNumber(){
     }
     if (number.value.length == 0){
      buttonClass.value="number__button2__disabled"
-  }
-  numberCode.value = number.value
+    }
+    
+    numberCode.value = number.value.split('').map(item => +item).reduce((acc, number) => acc + number)
+    if (numberCode.value <= 52){
+        return
+    }
+    numberCode.value = numberCode.value.toString().split('').map(item => +item).reduce((acc, number) => acc + number)
 }
 
 </script>

@@ -26,12 +26,12 @@ function changeComponent(name){
 
 <style>
 
-/* @keyframes Appearance 
+@keyframes Appearance 
 {
     0% {opacity: 0;}
     90% {opacity: 0;}
     100% {opacity: 1;}
-} */
+}
 
 .start-screen
 {
