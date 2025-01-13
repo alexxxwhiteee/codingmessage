@@ -48,6 +48,26 @@ const manual = defineModel('manual')
     border: 1px solid rgb(8, 224, 0);
 }
 
+@media screen and (max-width: 1200px) {
+    .manual__text
+    {
+        font-size: 20px;
+        line-height: 20px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .manual__text
+    {
+        font-size: 15px;
+        line-height: 15px;
+    }
+    .manual__button1
+    {
+        font-size: 10px;
+    }
+}
+
 .manual__button1
 {
     color: black;

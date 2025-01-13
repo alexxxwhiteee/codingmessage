@@ -15,13 +15,18 @@ const buttonClass = ref('text__button2__disabled')
 
 const text__textArea = ref({
     height: '25px',
-    padding: '100px 200px',
+    padding: '100px 10%',
     transition: '1s ease-in-out'
 })
 
 function size(){
     let x = text.value.length
-    let y = Math.ceil(x/40)
+    let y
+    if (x >= 100){
+        y = Math.ceil(x/40)
+    } else {
+        y = Math.ceil(x/86)
+    }
     let d = Math.abs(y-height.value)
     let z = parseInt(text__textArea.value.height, 10)
     if (y > height.value){
@@ -77,21 +82,36 @@ onMounted(() => {
 .text__div
 { 
     margin:30px; 
+    display: flex;
+    flex-direction: column;
+    width: 60%;
 }
 
-.text__text-area
+textarea
 {
-  font-size: 20px;
-  color: rgb(8, 224, 0);
-  background-color: black;
-  border: 1px solid rgb(8, 224, 0);
-  text-align: center;
-  resize: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  scrollbar-width: none;
-  overflow: hidden;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    color: rgb(8, 224, 0);
+    background-color: black;
+    border: 1px solid rgb(8, 224, 0);
+    resize: none;
+    scrollbar-width: none;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 900px) {
+    textarea{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    textarea{
+        font-size: 10px;
+    }
 }
 
 .text__text-area:hover,
@@ -150,6 +170,5 @@ onMounted(() => {
     background-color: black;
     border: 1px solid rgb(8, 224, 0);
 }
-
 
 </style>

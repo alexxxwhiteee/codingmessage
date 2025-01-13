@@ -6,11 +6,9 @@ const div = ref(false)
 
 const count = ref(0)
 
-
 const head = ref('')
 
 const first = ref('ОБРАБОТКА ДАННЫХ')
-
 
 function persentsCounter(){
     let x = setInterval(function(){
@@ -93,6 +91,34 @@ onMounted(() => {
     margin: 20px;
 }
 
+@media screen and (max-width: 1000px) {
+    .ls__loading__text,
+    .ls__button__message
+    {
+        font-size: 30px;
+        margin: 20px;
+    }
+    .ls__loading__persents
+{
+    font-size: 50px;
+    margin: 20px;
+}
+}
+
+@media screen and (max-width: 600px) {
+    .ls__loading__text,
+    .ls__button__message
+    {
+        font-size: 25px;
+        margin: 20px;
+    }
+    .ls__loading__persents
+    {
+        font-size: 40px;
+        margin: 20px;
+    }
+}
+
 .ls__loading__persents
 {
     font-size: 60px;
@@ -120,7 +146,5 @@ onMounted(() => {
     background-color: black;
     border: 1px solid rgb(8, 224, 0);
 }
-
-
 
 </style>

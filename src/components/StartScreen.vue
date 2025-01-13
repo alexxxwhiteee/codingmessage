@@ -45,12 +45,22 @@ function changeComponent(name){
 .ss__buttons
 {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  width: 80%;
+  justify-content: space-evenly;
   align-items: center;
   animation-name: Appearance;
   animation-duration: 2.9s;
   transition-timing-function: ease-in-out;
+}
+
+@media screen and (max-width: 900px) {
+  .ss__buttons
+  {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    justify-content: space-around;
+  }
 }
 
 .ss__button1,
@@ -66,7 +76,6 @@ function changeComponent(name){
     border: 0;
     width: 300px;
     height: 100px;
-    margin:100px;
 }
 
 .ss__button1:hover,

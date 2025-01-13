@@ -10,7 +10,6 @@ const number = defineModel('number')
 
 const manual = defineModel('manual')
 
-
 </script>
 
 <template>

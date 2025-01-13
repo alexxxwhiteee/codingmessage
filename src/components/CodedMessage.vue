@@ -94,14 +94,9 @@ function codedMessage(){
     text.value=z.join(', ')
 }
 
-
-
 onMounted(() => { 
     codedMessage()
 })
-
-
-
 
 </script>
 
@@ -167,6 +162,17 @@ onMounted(() => {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media screen and (max-width: 650px) {
+    .cm__message
+    {
+        font-size: 15px;
+    }
+    .cm__text
+    {
+        height: 40vh;
+    }
 }
 
 .cm__button,

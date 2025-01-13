@@ -4,7 +4,6 @@ const numberCode = ref(0)
 
 const textCode = ref('')
 
-
 function useNumberData() {
   return { numberCode }
 }
@@ -13,8 +12,7 @@ function useTextData() {
     return { textCode }
   }
 
-
-  const dataFunctions = {
+const dataFunctions = {
     useNumberData,
     useTextData
   }

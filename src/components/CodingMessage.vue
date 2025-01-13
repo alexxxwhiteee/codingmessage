@@ -32,7 +32,7 @@ function checkNumber(){
         buttonClass.value="number__button2__enabled"
     }
     if (number.value.length == 0){
-     buttonClass.value="number__button2__disabled"
+        buttonClass.value="number__button2__disabled"
     }
     
     numberCode.value = number.value.split('').map(item => +item).reduce((acc, number) => acc + number)
@@ -41,9 +41,6 @@ function checkNumber(){
     }
     numberCode.value = numberCode.value.toString().split('').map(item => +item).reduce((acc, number) => acc + number)
 }
-
-
-
 
 </script>
 

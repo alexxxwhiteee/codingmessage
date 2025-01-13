@@ -94,12 +94,9 @@ function uncodedMessage(){
     text.value=z.join('')
 }
 
-
-
 onMounted(() => { 
     uncodedMessage()
 })
-
 
 </script>
 
@@ -165,6 +162,7 @@ onMounted(() => {
     display: flex;
     justify-content: center;
     align-items: center;
+    word-break: break-all;
 }
 
 .um__button,
