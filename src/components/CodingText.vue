@@ -3,19 +3,17 @@ import { ref } from 'vue'
 import Manual from './Manual.vue'
 import Text from './Text.vue'
 import Codedmessage from './CodedMessage.vue'
-import dataFunctions from '/Users/Aleksandr/vue-project/src/assets/dataStorage.js'
+import dataObject from '@/assets/dataStorage.js'
 
 const manual = ref(true)
 
-const maxLength = ref(99)
+const maxLength = 99
 
 const component = defineModel('Component')
 
 function changeComponent(name){
     component.value = name
 }
-
-const { textCode }  = dataFunctions.useTextData()
 
 const text = ref('')
 
@@ -24,12 +22,11 @@ const textSymbols = ["А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И",
                             ".", ",", ":", "-", "!", "?", " ", "(", ")",
                                 "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
-
 function checkText(){
     let x = Array.from(text.value.toUpperCase())
     let textEdited = x.filter(symbol => textSymbols.includes(symbol)).join('');
     text.value=textEdited
-    textCode.value = text.value
+    dataObject.text = text.value
 }
 
 </script>

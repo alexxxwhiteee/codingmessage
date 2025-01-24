@@ -3,19 +3,17 @@ import { ref } from 'vue'
 import Manual from './Manual.vue'
 import Text from './Text.vue'
 import Uncodedmessage from './UncodedMessage.vue'
-import dataFunctions from '/Users/Aleksandr/vue-project/src/assets/dataStorage.js'
+import dataObject from '@/assets/dataStorage.js'
 
 const manual = ref(true)
 
-const maxLength = ref(400)
+const maxLength = 400
 
 const component = defineModel('Component')
 
 function changeComponent(name){
     component.value = name
 }
-
-const { textCode }  = dataFunctions.useTextData()
 
 const text = ref('')
 
@@ -28,7 +26,7 @@ function checkText(){
     if (text.value[0] == ',' || text.value[0] == ' '){
         text.value = ''
     }
-    textCode.value = text.value
+    dataObject.text = text.value
 }
 
 </script>

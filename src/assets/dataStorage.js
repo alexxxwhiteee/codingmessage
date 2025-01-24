@@ -1,21 +1,6 @@
-import { ref } from 'vue'
-
-const numberCode = ref(0)
-
-const textCode = ref('')
-
-function useNumberData() {
-  return { numberCode }
+const dataObject = {
+  number: 0,
+  text: ''
 }
 
-function useTextData() {
-    return { textCode }
-  }
-
-const dataFunctions = {
-    useNumberData,
-    useTextData
-  }
-
-export default dataFunctions
-
+export default dataObject

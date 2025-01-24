@@ -7,7 +7,6 @@
     color: rgb(8, 224, 0);
 }
 
-
 html
 {
     background-color: black;
@@ -27,10 +26,3 @@ body
 {
     margin: 0;
 }
-
-.matrix
-{
-    z-index: -10;
-    position: absolute;
-}
-

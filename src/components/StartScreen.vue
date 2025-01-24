@@ -49,7 +49,7 @@ function changeComponent(name){
   justify-content: space-evenly;
   align-items: center;
   animation-name: Appearance;
-  animation-duration: 2.9s;
+  animation-duration: 2.8s;
   transition-timing-function: ease-in-out;
 }
 
@@ -66,24 +66,9 @@ function changeComponent(name){
 .ss__button1,
 .ss__button2
 {
-    color: black;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(8, 224, 0);
-    font-size: 20px;
     border: 0;
     width: 300px;
     height: 100px;
-}
-
-.ss__button1:hover,
-.ss__button2:hover
-{
-    color: rgb(8, 224, 0);
-    background-color: black;
-    border: 1px solid rgb(8, 224, 0);
 }
 
 </style>

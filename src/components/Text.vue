@@ -11,7 +11,7 @@ const text = defineModel('text')
 
 const height = ref(1)
 
-const buttonClass = ref('text__button2__disabled')
+const buttonClass = ref('text__button2_disabled')
 
 const text__textArea = ref({
     height: '25px',
@@ -21,27 +21,30 @@ const text__textArea = ref({
 
 function size(){
     let x = text.value.length
+    if(x == 0){
+      buttonClass.value = "text__button2_disabled"
+    }
+    else {
+      buttonClass.value = "text__button2_enabled"
+    }
+
     let y
     if (x >= 100){
         y = Math.ceil(x/40)
-    } else {
+    }
+    else {
         y = Math.ceil(x/86)
     }
+
     let d = Math.abs(y-height.value)
     let z = parseInt(text__textArea.value.height, 10)
     if (y > height.value){
         text__textArea.value.height = z + (20*d) + 'px'
         height.value = y
     }
-    if (y < height.value ){
+    else {
         text__textArea.value.height = z - (20*d) + 'px'
         height.value = y
-    }
-    if(x == 0){
-      buttonClass.value = "text__button2__disabled"
-    }
-    if(x >= 1){
-      buttonClass.value = "text__button2__enabled"
     }
 }
 
@@ -55,7 +58,7 @@ onMounted(() => {
 
     <div class="text">
 
-        <div class="text__div">
+        <div class="text__form">
             <textarea class="text__text-area" :style="text__textArea" @keyup="size()" @input="$emit('checkText')" type="input" v-model="text" 
             :minlength="minLength" :maxlength="maxLength" cols="40" rows="3" placeholder="ВВЕДИТЕ ВАШЕ СООБЩЕНИЕ В ЭТО ПОЛЕ">
             </textarea>
@@ -79,7 +82,7 @@ onMounted(() => {
   align-items: center;
 }
 
-.text__div
+.text__form
 { 
     margin:30px; 
     display: flex;
@@ -120,55 +123,28 @@ textarea
   outline: none;
 }
 
-.text__button1,
-.text__button2__enabled
-{
-    color: black;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(8, 224, 0);
-    font-size: 20px;
-}
-
 .text__button1
 {
   width: 100%;
-  border: 1px solid rgb(8, 224, 0);
+
 }
 
-.text__button2__enabled
+.text__button2_enabled
 {
-  border: 0;
   height: 60px;
   width: 200px;
   margin:30px;
   pointer-events: auto;
 }
 
-.text__button2__disabled
+.text__button2_disabled
 {
   color: rgb(118, 118, 118);
-  border: 1px solid rgb(8, 224, 0);
   background-color: black;
   height: 60px;
   width: 200px;
   margin:30px;
-  font-size: 20px;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
   pointer-events: none;
-}
-
-.text__button1:hover,
-.text__button2__enabled:hover
-{
-    color: rgb(8, 224, 0);
-    background-color: black;
-    border: 1px solid rgb(8, 224, 0);
 }
 
 </style>

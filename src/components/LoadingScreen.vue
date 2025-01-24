@@ -2,13 +2,13 @@
 import { ref, onMounted } from 'vue'
 import Mybutton from './MyButton.vue'
 
-const div = ref(false)
+const loadingProcess = ref(false)
 
 const count = ref(0)
 
-const head = ref('')
+const dots = ref('')
 
-const first = ref('ОБРАБОТКА ДАННЫХ')
+const text = 'ОБРАБОТКА ДАННЫХ'
 
 function persentsCounter(){
     let x = setInterval(function(){
@@ -21,14 +21,13 @@ function persentsCounter(){
 
 function loadingMessage(){
     let y = setInterval(function(){
-    head.value=head.value+'.'
-    if (head.value == '....'){
-            head.value = ''
+        dots.value=dots.value+'.'
+    if (dots.value == '....'){
+        dots.value = ''
         }
     if (count.value == 100){
-        z = setTimeout( function() {
-        div.value = true }, 2000)
-        clearInterval(y)
+     let z = setTimeout( function() {
+        loadingProcess.value = true }, 2000)
     }
         }, 400)
 }
@@ -44,17 +43,17 @@ onMounted(() => {
 
     <div class="loading-screen">
 
-        <div v-if="!div" class="ls__loading">
+        <div v-if="!loadingProcess" class="ls__loading">
 
-            <span class="ls__loading__text">{{ first }}{{ head }}</span>
-            <span class="ls__loading__persents">{{ count }} %</span>
+            <span class="ls__loading-text">{{ text }}{{ dots }}</span>
+            <span class="ls__loading-persents">{{ count }} %</span>
 
         </div>
 
-        <div v-if="div" class="ls__button"> 
+        <div v-if="loadingProcess" class="ls__button"> 
         
-            <span class="ls__button__message">ОБРАБОТКА ДАННЫХ ПРОШЛА УСПЕШНО!</span>
-            <Mybutton class="ls__button__active" @click="$emit('changeManual')"> ПРОДОЛЖИТЬ </Mybutton>
+            <span class="ls__button-message">ОБРАБОТКА ДАННЫХ ПРОШЛА УСПЕШНО!</span>
+            <Mybutton class="ls__button-active" @click="$emit('changeManual')"> ПРОДОЛЖИТЬ </Mybutton>
         
         </div>
 
@@ -84,21 +83,21 @@ onMounted(() => {
     text-align: center; 
 }
 
-.ls__loading__text,
-.ls__button__message
+.ls__loading-text,
+.ls__button-message
 {
     font-size: 40px;
     margin: 20px;
 }
 
 @media screen and (max-width: 1000px) {
-    .ls__loading__text,
-    .ls__button__message
+    .ls__loading-text,
+    .ls__button-message
     {
         font-size: 30px;
         margin: 20px;
     }
-    .ls__loading__persents
+    .ls__loading-persents
 {
     font-size: 50px;
     margin: 20px;
@@ -106,26 +105,26 @@ onMounted(() => {
 }
 
 @media screen and (max-width: 600px) {
-    .ls__loading__text,
-    .ls__button__message
+    .ls__loading-text,
+    .ls__button-message
     {
         font-size: 25px;
         margin: 20px;
     }
-    .ls__loading__persents
+    .ls__loading-persents
     {
         font-size: 40px;
         margin: 20px;
     }
 }
 
-.ls__loading__persents
+.ls__loading-persents
 {
     font-size: 60px;
     margin: 20px;
 }
 
-.ls__button__active
+.ls__button-active
 {
     color: black;
     display: flex;
@@ -140,7 +139,7 @@ onMounted(() => {
     margin:30px; 
 }
 
-.ls__button__active:hover
+.ls__button-active:hover
 {
     color: rgb(8, 224, 0);
     background-color: black;
