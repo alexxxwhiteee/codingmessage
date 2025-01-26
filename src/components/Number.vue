@@ -79,6 +79,7 @@ function checkNumber(){
   background-color: black;
   border: 1px solid rgb(8, 224, 0);
   text-align: center;
+  border-radius: 0px;
 }
 
 .number__input::placeholder {
