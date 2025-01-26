@@ -66,6 +66,9 @@ function checkNumber(){
 .number__form
 { 
   margin:30px;  
+  width: 500px;
+  display: flex;
+  flex-direction: column;
 }
 
 .number__input
@@ -123,6 +126,21 @@ function checkNumber(){
   width: 200px;
   margin:30px;
   pointer-events: none;
+}
+
+@media screen and (max-width: 600px) {
+  .number__form
+  {   
+    width: 300px;
+  }
+  .number__text
+  {
+    font-size: 10px;
+  }
+  .number__input::placeholder 
+  {
+    font-size: 10px;
+  }
 }
 
 </style>

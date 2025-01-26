@@ -103,6 +103,7 @@ textarea
     resize: none;
     scrollbar-width: none;
     overflow: hidden;
+    border-radius: 0px;
 }
 
 @media screen and (max-width: 900px) {
