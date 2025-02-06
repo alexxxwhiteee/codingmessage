@@ -3,7 +3,9 @@ import { ref } from 'vue'
 import Manual from './Manual.vue'
 import Text from './Text.vue'
 import Uncodedmessage from './UncodedMessage.vue'
-import dataObject from '@/assets/dataStorage.js'
+import { useDataStore } from '@/stores/DataStore';
+
+const dataStore = useDataStore()
 
 const manual = ref(true)
 
@@ -26,7 +28,7 @@ function checkText(){
     if (text.value[0] == ',' || text.value[0] == ' '){
         text.value = ''
     }
-    dataObject.text = text.value
+    dataStore.text = text.value
 }
 
 </script>

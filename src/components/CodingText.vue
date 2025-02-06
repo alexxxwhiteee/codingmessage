@@ -3,7 +3,9 @@ import { ref } from 'vue'
 import Manual from './Manual.vue'
 import Text from './Text.vue'
 import Codedmessage from './CodedMessage.vue'
-import dataObject from '@/assets/dataStorage.js'
+import { useDataStore } from '@/stores/DataStore';
+
+const dataStore = useDataStore()
 
 const manual = ref(true)
 
@@ -26,7 +28,7 @@ function checkText(){
     let x = Array.from(text.value.toUpperCase())
     let textEdited = x.filter(symbol => textSymbols.includes(symbol)).join('');
     text.value=textEdited
-    dataObject.text = text.value
+    dataStore.text = text.value
 }
 
 </script>

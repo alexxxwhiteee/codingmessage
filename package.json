@@ -11,6 +11,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "pinia": "^2.3.1",
     "vue": "^3.4.29"
   },
   "devDependencies": {

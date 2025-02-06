@@ -2,7 +2,9 @@
 import { ref, onMounted } from 'vue'
 import Loadingscreen from './LoadingScreen.vue'
 import Mybutton from './MyButton.vue'
-import dataObject from '@/assets/dataStorage.js'
+import { useDataStore } from '@/stores/DataStore';
+
+const dataStore = useDataStore()
 
 const manual = ref(true)
 
@@ -23,8 +25,8 @@ const arr = ["А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "
 const text = ref('');
 
 function codedMessage(){
-    let x = [...arr.slice(dataObject.number-1, arr.length), ...arr.slice(0, dataObject.number-1)]
-    let y = dataObject.text.split('')
+    let x = [...arr.slice(dataStore.number-1, arr.length), ...arr.slice(0, dataStore.number-1)]
+    let y = dataStore.text.split('')
     let z = []
 
     for(let i=0; i<y.length; i++){

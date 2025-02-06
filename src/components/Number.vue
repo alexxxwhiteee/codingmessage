@@ -1,6 +1,8 @@
 <script setup>
 import Mybutton from './MyButton.vue'
-import dataObject from '@/assets/dataStorage.js'
+import { useDataStore } from '@/stores/DataStore';
+
+const dataStore = useDataStore()
 
 const number = defineModel('number')
 
@@ -24,11 +26,11 @@ function checkNumber(){
     }
   }
     
-    dataObject.number = numberEdited.split('').map(item => +item).reduce((acc, number) => acc + number)
-    if (dataObject.number <= 52){
+  dataStore.number = numberEdited.split('').map(item => +item).reduce((acc, number) => acc + number)
+    if (dataStore.number <= 52){
         return
     }
-    dataObject.number = dataObject.number.toString().split('').map(item => +item).reduce((acc, number) => acc + number)
+    dataStore.number = dataStore.number.toString().split('').map(item => +item).reduce((acc, number) => acc + number)
 }
 
 </script>
