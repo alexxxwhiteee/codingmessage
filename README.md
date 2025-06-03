@@ -2,6 +2,8 @@
   <img src="src/assets/demo.gif" width="700" alt="demo">
 </p>
 
+<div align="center">
+
 # CODING MESSAGE 
 
 </div>
