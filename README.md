@@ -1,8 +1,12 @@
 <p align="center">
-  <img src="src/assets/demo.gif" width="400" alt="demo">
+  <img src="src/assets/demo.gif" width="700" alt="demo">
 </p>
 
-# [Coding message](https://alexxxwhiteee.github.io/codingmessage/)
+<p align="center">
+  <a href='https://alexxxwhiteee.github.io/codingmessage/' title="link" target="_blank">CODING MESSAGE</a>
+</p>
+
+#
 
 Это небольшой pet-project, функционал которого заключается в кодировании или расшифровке текстового сообщения.
 
