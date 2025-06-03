@@ -3,7 +3,8 @@
 </p>
 
 <p align="center">
-  <a href='https://alexxxwhiteee.github.io/codingmessage/' title="link" target="_blank">CODING MESSAGE</a>
+  <a href='https://alexxxwhiteee.github.io/codingmessage/' title="link" target="_blank" 
+  style="text-decoration: none; color: rgb(8, 224, 0); font-size: 24px;">CODING MESSAGE</a>
 </p>
 
 #
