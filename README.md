@@ -2,11 +2,16 @@
   <img src="src/assets/demo.gif" width="700" alt="demo">
 </p>
 
-<div align="center">
-  
-# [CODING MESSAGE](https://alexxxwhiteee.github.io/codingmessage/) 
+# CODING MESSAGE 
 
 </div>
+
+<div align="center">
+  
+### [GITHUB PAGES](https://alexxxwhiteee.github.io/codingmessage/) 
+
+</div>
+
 
 Это pet-project, функционал которого заключается в кодировании или расшифровке текстового сообщения.
 
