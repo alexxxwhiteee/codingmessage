@@ -1,6 +1,6 @@
-<div style="display: flex; justify-content: center;">
-  <img src="src/assets/demo.gif" alt="demo">
-</div>
+<p align="center">
+  <img src="src/assets/demo.gif" width="400" alt="demo">
+</p>
 
 # [Coding message](https://alexxxwhiteee.github.io/codingmessage/)
 
