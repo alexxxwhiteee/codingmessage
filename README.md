@@ -2,14 +2,13 @@
   <img src="src/assets/demo.gif" width="700" alt="demo">
 </p>
 
-<p align="center">
-  <a href='https://alexxxwhiteee.github.io/codingmessage/' title="link" target="_blank" 
-  style="text-decoration: none; color: rgb(8, 224, 0); font-size: 24px;">CODING MESSAGE</a>
-</p>
+<div align="center">
+  
+# [CODING MESSAGE](https://alexxxwhiteee.github.io/codingmessage/) 
 
-#
+</div>
 
-Это небольшой pet-project, функционал которого заключается в кодировании или расшифровке текстового сообщения.
+Это pet-project, функционал которого заключается в кодировании или расшифровке текстового сообщения.
 
 ### Алгоритм работы следующий:
 1. Для того, чтобы зашифровать или расшифровать сообщение пользователь вводит число — ключ, без него сделать это не получится.
