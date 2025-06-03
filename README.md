@@ -1,5 +1,5 @@
 <div style="display: flex; justify-content: center;">
-  <img src="assets/demo.gif" alt="demo">
+  <img src="src/assets/demo.gif" alt="demo">
 </div>
 
 # [Coding message](https://alexxxwhiteee.github.io/codingmessage/)
