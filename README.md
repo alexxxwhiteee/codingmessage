@@ -1,29 +1,22 @@
-# vue-project
+<div style="display: flex; justify-content: center;">
+  <img src="assets/demo.gif" alt="demo">
+</div>
 
-This template should help get you started developing with Vue 3 in Vite.
+# [Coding message](https://alexxxwhiteee.github.io/codingmessage/)
 
-## Recommended IDE Setup
+Это небольшой pet-project, функционал которого заключается в кодировании или расшифровке текстового сообщения.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### Алгоритм работы следующий:
+1. Для того, чтобы зашифровать или расшифровать сообщение пользователь вводит число — ключ, без него сделать это не получится.
+2. Далее вводится само сообщение.
+3. На основе ключа строится массив из букв и допустимых символов, сообщение "кодируется" — каждая буква заменяется на индекс этой буквы в массиве.
+4. Пользователь получает закодированое сообщение в виде набора чисел.
+5. Чтобы расшифровать сообщение нужно ввести число - ключ и кодированое сообщение, если ключ соответствует этому сообщение то после обработки данных пользователь получит расшифрованое сообщение.
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+### Технологии:
+- JavaScript
+- Vue 3
+- Pinia
+- HTML5
+- CSS3
+- Vite
