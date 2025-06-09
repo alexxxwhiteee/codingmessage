@@ -42,7 +42,8 @@
 
 </div>
 
+###
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=alexxxwhiteee&layout=donut&exclude_repo=faceit-extension,my-workshop-landing" height="150" alt="stats-graph"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=alexxxwhiteee&layout=donut&exclude_repo=faceit-extension,my-workshop-landing" height="180" alt="stats-graph"/>
 </div>
