@@ -24,12 +24,25 @@
 4. Пользователь получает закодированое сообщение в виде набора чисел.
 5. Чтобы расшифровать сообщение нужно ввести число - ключ и кодированое сообщение, если ключ соответствует этому сообщению то после обработки данных пользователь получит расшифрованое сообщение.
 
-### Технологии:
-- JavaScript
-- Vue 3
-- Pinia
-- HTML5
-- CSS3
-- Vite
+<div align="center">
 
-![Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=alexxxwhiteee&layout=donut&exclude_repo=faceit-extension,my-workshop-landing)
+<h3>🛠 Технологии:</h3>
+
+</div>
+
+<div align="center">
+
+<img src="src/assets/icons/js.png" height="40" alt="javascript">
+<img src="src/assets/icons/html.png" height="40" alt="html">
+<img src="src/assets/icons/css.png" height="40" alt="css">
+<img src="src/assets/icons/vue.png" height="40" alt="vue">
+<img src="src/assets/icons/pinia.svg" height="40" alt="pinia">
+<img src="src/assets/icons/vite.png" height="40" alt="vite">
+<img src="src/assets/icons/api.png" height="40" alt="api">
+
+</div>
+
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=alexxxwhiteee&layout=donut&exclude_repo=faceit-extension,my-workshop-landing" height="150" alt="stats-graph"/>
+</div>
