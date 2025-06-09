@@ -32,4 +32,4 @@
 - CSS3
 - Vite
 
-![Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=alexxxwhiteee&layout=compact&exclude_repo=faceit-extension,my-workshop-landing)
+![Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=alexxxwhiteee&layout=donut&exclude_repo=faceit-extension,my-workshop-landing)
