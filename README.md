@@ -38,7 +38,6 @@
 <img src="src/assets/icons/vue.png" height="40" alt="vue">
 <img src="src/assets/icons/pinia.svg" height="40" alt="pinia">
 <img src="src/assets/icons/vite.png" height="40" alt="vite">
-<img src="src/assets/icons/api.png" height="40" alt="api">
 
 </div>
 
