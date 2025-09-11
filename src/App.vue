@@ -1,8 +1,5 @@
 <script setup>
-import { ref, onMounted, useTemplateRef } from 'vue'
-import Startscreen from './components/StartScreen.vue'
-
-const activeComponent= ref(Startscreen)
+import { onMounted, useTemplateRef } from 'vue'
 
 const canvas = useTemplateRef('canvas')
 
@@ -45,9 +42,11 @@ window.addEventListener("resize", () => location.reload());
 
 <template>
 
-<canvas ref="canvas" class="matrix"></canvas>
-
-<component :is="activeComponent"  v-model:Component="activeComponent"></component>
+    <canvas ref="canvas" class="matrix"></canvas>
+    
+    <div>
+        <RouterView />
+    </div>
 
 </template>
 

@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import Manual from './Manual.vue'
 import Text from './Text.vue'
-import Codedmessage from './CodedMessage.vue'
 import { useDataStore } from '@/stores/DataStore';
 
 const dataStore = useDataStore()
@@ -10,12 +9,6 @@ const dataStore = useDataStore()
 const manual = ref(true)
 
 const maxLength = 99
-
-const component = defineModel('Component')
-
-function changeComponent(name){
-    component.value = name
-}
 
 const text = ref('')
 
@@ -38,7 +31,7 @@ function checkText(){
     <div>
 
         <div v-if="!manual">
-            <Text v-model:manual="manual" v-model:text="text" v-model:maxLength="maxLength" @nextComponent="changeComponent(Codedmessage)" @checkText="checkText()"></Text>
+            <Text v-model:manual="manual" v-model:text="text" v-model:maxLength="maxLength" to="/codedmessage" @checkText="checkText()"></Text>
         </div>
 
         <div v-else="manual">

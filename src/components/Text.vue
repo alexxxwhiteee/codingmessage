@@ -1,6 +1,14 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import Mybutton from './MyButton.vue'
+import AppLink from './AppLink.vue';
+
+defineProps({
+  to: {
+    type: String,
+    required: true
+  }
+})
 
 const minLength = ref(1)
 const maxLength = defineModel('maxLength')
@@ -65,7 +73,7 @@ onMounted(() => {
             <Mybutton class="text__button1" @click="manual=!manual"> ? </Mybutton>
         </div>
 
-        <Mybutton :class="buttonClass" @click="$emit('nextComponent')"> ПРОДОЛЖИТЬ </Mybutton>
+        <AppLink :to="to" :class="buttonClass"> ПРОДОЛЖИТЬ </AppLink>
 
     </div>
 
@@ -134,7 +142,7 @@ textarea
 {
   height: 60px;
   width: 200px;
-  margin:30px;
+  margin-top:20px;
   pointer-events: auto;
 }
 
@@ -144,7 +152,7 @@ textarea
   background-color: black;
   height: 60px;
   width: 200px;
-  margin:30px;
+  margin-top:20px;
   pointer-events: none;
 }
 

@@ -1,6 +1,14 @@
 <script setup>
+import AppLink from './AppLink.vue';
 import Mybutton from './MyButton.vue'
 import { useDataStore } from '@/stores/DataStore';
+
+defineProps({
+  to: {
+    type: String,
+    required: true
+  }
+})
 
 const dataStore = useDataStore()
 
@@ -48,7 +56,7 @@ function checkNumber(){
         <h1>ВАШЕ КОДОВОЕ ЧИСЛО: {{ number }}</h1>
         </div>
 
-        <Mybutton :class="buttonClass" @click="$emit('nextComponent')"> ПРОДОЛЖИТЬ </Mybutton>
+        <AppLink :to="to" :class="buttonClass"> ПРОДОЛЖИТЬ </AppLink>
 
     </div>
 
@@ -117,7 +125,7 @@ function checkNumber(){
 {
   height: 60px;
   width: 200px;
-  margin:30px;
+  margin-top: 20px;
   pointer-events: auto;
 }
 
@@ -127,7 +135,7 @@ function checkNumber(){
   background-color: black;
   height: 60px;
   width: 200px;
-  margin:30px;
+  margin-top: 20px;
   pointer-events: none;
 }
 

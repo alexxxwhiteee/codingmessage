@@ -2,19 +2,13 @@
 import { ref } from 'vue'
 import Manual from './Manual.vue'
 import Number from './Number.vue'
-import Uncodingtext from './UncodingText.vue'
+
 
 const manual = ref(true)
 
 const number = ref('')
 
 const buttonClass = ref('number__button2_disabled')
-
-const component = defineModel('Component')
-
-function changeComponent(name){
-    component.value = name
-}
 
 </script>
 
@@ -24,7 +18,7 @@ function changeComponent(name){
 
       <div v-if="!manual">
 
-        <Number v-model:manual="manual" v-model:number="number" v-model:buttonClass="buttonClass" @nextComponent="changeComponent(Uncodingtext)" ></Number>  
+        <Number v-model:manual="manual" v-model:number="number" v-model:buttonClass="buttonClass" to="/uncodingtext" ></Number>  
       </div>
 
       <div v-else="manual">

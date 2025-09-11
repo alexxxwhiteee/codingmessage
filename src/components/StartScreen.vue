@@ -1,23 +1,15 @@
 <script setup>
-import Mybutton from './MyButton.vue'
-import Codingmessage from './CodingMessage.vue'
-import Uncodingmessage from './UncodingMessage.vue'
-
-const component = defineModel('Component')
-
-function changeComponent(name){
-    component.value = name
-}
+import AppLink from './AppLink.vue';
 
 </script>
 
 <template>
 
-  <div class="start-screen">
+  <div class="start-screen no-dark">
 
     <div class="ss__buttons">
-    <Mybutton class="ss__button1" @click="changeComponent(Codingmessage)"> ЗАШИФРОВАТЬ СООБЩЕНИЕ </Mybutton>
-    <Mybutton class="ss__button2" @click="changeComponent(Uncodingmessage)"> РАСШИФРОВАТЬ СООБЩЕНИЕ </Mybutton>
+      <AppLink to="/codingmessage" class="ss__button1"> ЗАШИФРОВАТЬ СООБЩЕНИЕ </AppLink>
+      <AppLink to="/uncodingmessage" class="ss__button2"> РАСШИФРОВАТЬ СООБЩЕНИЕ </AppLink>
     </div>
 
   </div>
@@ -49,7 +41,7 @@ function changeComponent(name){
   justify-content: space-evenly;
   align-items: center;
   animation-name: Appearance;
-  animation-duration: 2.8s;
+  /* animation-duration: 2.8s; */
   transition-timing-function: ease-in-out;
 }
 

@@ -11,12 +11,6 @@ const manual = ref(true)
 
 const maxLength = 400
 
-const component = defineModel('Component')
-
-function changeComponent(name){
-    component.value = name
-}
-
 const text = ref('')
 
 const textSymbols = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ",", " "]                                
@@ -38,7 +32,7 @@ function checkText(){
     <div>
 
         <div v-if="!manual">
-            <Text v-model:manual="manual" v-model:text="text" v-model:maxLength="maxLength" @nextComponent="changeComponent(Uncodedmessage)" @checkText="checkText()"></Text>
+            <Text v-model:manual="manual" v-model:text="text" v-model:maxLength="maxLength" to="/uncodedmessage" @checkText="checkText()"></Text>
         </div>
 
         <div v-else="manual">
