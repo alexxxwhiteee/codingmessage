@@ -30,13 +30,11 @@ function checkText(){
     
     <div>
 
-        <div v-if="!manual">
-            <Text v-model:manual="manual" v-model:text="text" v-model:maxLength="maxLength" to="/codedmessage" @checkText="checkText()"></Text>
-        </div>
+        <KeepAlive>
 
-        <div v-else="manual">
+            <Text v-if="!manual" v-model:manual="manual" v-model:text="text" v-model:maxLength="maxLength" to="/codedmessage" @checkText="checkText()"></Text>
 
-            <Manual v-model:manual="manual">
+            <Manual v-else="manual" v-model:manual="manual">
                 КОДОВОЕ ЧИСЛО УСПЕШНО СОХРАНЕНО! <br />
                 ДАЛЕЕ ВАМ НУЖНО ВВЕСТИ СООБЩЕНИЕ КОТОРОЕ ВЫ ХОТИТЕ ЗАШИФРОВАТЬ. <br />
                 ОБРАТИТЕ ВНИМАНИЕ НА НЕСКОЛЬКО ПРАВИЛ НАПИСАНИЯ СООБЩЕНИЯ: <br /> 
@@ -53,7 +51,7 @@ function checkText(){
                 </ol>
             </Manual>
 
-        </div>
+        </KeepAlive>
 
     </div>
 

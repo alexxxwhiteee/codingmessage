@@ -2,7 +2,8 @@
 import { ref, onMounted } from 'vue'
 import Mybutton from './MyButton.vue'
 
-const loadingProcess = ref(false)
+// const loadingProcess = ref(false)
+const loadingProcess = ref(true)
 
 const count = ref(0)
 
@@ -104,7 +105,7 @@ onMounted(() => {
 }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 610px) {
     .ls__loading-text,
     .ls__button-message
     {

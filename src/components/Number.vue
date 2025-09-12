@@ -1,7 +1,8 @@
 <script setup>
-import AppLink from './AppLink.vue';
+import AppLink from './AppLink.vue'
 import Mybutton from './MyButton.vue'
-import { useDataStore } from '@/stores/DataStore';
+import { useDataStore } from '@/stores/DataStore'
+import { computed, ref, watch } from 'vue'
 
 defineProps({
   to: {
@@ -12,34 +13,34 @@ defineProps({
 
 const dataStore = useDataStore()
 
-const number = defineModel('number')
+const number = ref('')
 
 const manual = defineModel('manual')
 
-const buttonClass = defineModel('buttonClass')
-
 const numberSymbols = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
-function checkNumber(){
-    let x = Array.from(number.value)
-    let numberEdited = x.filter(symbol => numberSymbols.includes(symbol)).join('');
-    number.value = numberEdited
-    for( let i = 0; i < numberSymbols.length; i++){
-    if (number.value[0] == 0 || number.value.length == 0){
+const activeButton = computed(() => {
+  return number.value.length >=1
+})
+
+watch (number, (newValue) => {
+  let cleaned = Array.from(newValue).filter(symbol => numberSymbols.includes(symbol)).join('')
+  if (newValue !== cleaned) {
+    number.value = cleaned
+  }
+  for( let i = 0; i < numberSymbols.length; i++){
+ if (number.value[0] == 0 || number.value.length == 0){
           number.value=''
-          buttonClass.value="number__button2_disabled"
-    }
-    else if (number.value[0] == numberSymbols[i]) {
-        buttonClass.value="number__button2_enabled"
     }
   }
-    
-  dataStore.number = numberEdited.split('').map(item => +item).reduce((acc, number) => acc + number)
-    if (dataStore.number <= 52){
-        return
-    }
-    dataStore.number = dataStore.number.toString().split('').map(item => +item).reduce((acc, number) => acc + number)
-}
+
+  let currentValue = number.value
+  let sum = currentValue.split('').map(item => +item).reduce((acc, number) => acc + number)
+  while (sum > 52){
+    sum = sum.toString().split('').map(item => +item).reduce((acc, number) => acc + number)
+  }
+  dataStore.number = sum
+}, { flush: 'sync' })
 
 </script>
 
@@ -48,7 +49,7 @@ function checkNumber(){
     <div class="number">
 
         <div class="number__form">
-            <input class="number__input" @input="checkNumber()" type="input" v-model="number" size=45 maxlength="9" placeholder="ВВЕДИТЕ ВАШЕ КОДОВОЕ ЧИСЛО В ЭТО ПОЛЕ"/>
+            <input class="number__input" type="input" v-model="number" size=45 maxlength="9" placeholder="ВВЕДИТЕ ВАШЕ КОДОВОЕ ЧИСЛО В ЭТО ПОЛЕ"/>
             <Mybutton class="number__button1" @click="manual=!manual"> ? </Mybutton>
         </div>
 
@@ -56,7 +57,7 @@ function checkNumber(){
         <h1>ВАШЕ КОДОВОЕ ЧИСЛО: {{ number }}</h1>
         </div>
 
-        <AppLink :to="to" :class="buttonClass"> ПРОДОЛЖИТЬ </AppLink>
+        <AppLink :to="to" :class="[activeButton ? 'number__button2_enabled' : 'number__button2_disabled']"> ПРОДОЛЖИТЬ </AppLink>
 
     </div>
 

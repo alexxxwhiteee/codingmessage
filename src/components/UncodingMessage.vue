@@ -3,32 +3,24 @@ import { ref } from 'vue'
 import Manual from './Manual.vue'
 import Number from './Number.vue'
 
-
 const manual = ref(true)
-
-const number = ref('')
-
-const buttonClass = ref('number__button2_disabled')
 
 </script>
 
 <template>
     
     <div>
+      <KeepAlive>
 
-      <div v-if="!manual">
+        <Number v-if="!manual" v-model:manual="manual" to="/uncodingtext" ></Number>  
 
-        <Number v-model:manual="manual" v-model:number="number" v-model:buttonClass="buttonClass" to="/uncodingtext" ></Number>  
-      </div>
-
-      <div v-else="manual">
-        <Manual v-model:manual="manual">
+        <Manual v-else="manual" v-model:manual="manual">
           ДЛЯ ТОГО, ЧТОБЫ РАСШИФРОВАТЬ СООБЩЕНИЕ ВАМ НУЖНО ВВЕСТИ КОДОВОЕ ЧИСЛО, ВЫ ДОЛЖНЫ БЫЛИ ПОЛУЧИТЬ ЕГО ВМЕСТЕ С ЗАШИФРОВАНЫМ СООБЩЕНИЕМ, 
           БЕЗ ЭТОГО ЧИСЛА РАСШИФРОВАТЬ ВАШЕ СООБЩЕНИЕ БУДЕТ НЕВОЗМОЖНО.
           ОБРАТИТЕ ВНИМАНИЕ НА ТО, ЧТО ВАШЕ КОДОВОЕ ЧИСЛО НЕ ДОЛЖНО НАЧИНАТЬСЯ С НУЛЯ.
         </Manual>
-      </div>
 
+      </KeepAlive>
     </div>
 
 </template>

@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, watch } from 'vue'
 import Mybutton from './MyButton.vue'
 import AppLink from './AppLink.vue';
 
@@ -19,46 +19,41 @@ const text = defineModel('text')
 
 const height = ref(1)
 
-const buttonClass = ref('text__button2_disabled')
-
 const text__textArea = ref({
     height: '25px',
     padding: '100px 10%',
-    transition: '1s ease-in-out'
+    transition: '0.3s ease-in-out'
 })
 
-function size(){
-    let x = text.value.length
-    if(x == 0){
-      buttonClass.value = "text__button2_disabled"
-    }
-    else {
-      buttonClass.value = "text__button2_enabled"
-    }
-
-    let y
-    if (x >= 100){
-        y = Math.ceil(x/40)
-    }
-    else {
-        y = Math.ceil(x/86)
-    }
-
-    let d = Math.abs(y-height.value)
-    let z = parseInt(text__textArea.value.height, 10)
-    if (y > height.value){
-        text__textArea.value.height = z + (20*d) + 'px'
-        height.value = y
-    }
-    else {
-        text__textArea.value.height = z - (20*d) + 'px'
-        height.value = y
-    }
-}
-
-onMounted(() => { 
-    size() 
+const activeButton = computed(() => {
+  return text.value.length >=1
 })
+
+watch (text, ()=>{
+  let x = text.value.length
+  let y
+  if (x >= 100){
+      y = Math.ceil(x/40)
+  }
+  else if (x == 0) {
+    y = 1
+  }
+  else {
+      y = Math.ceil(x/86)
+  }
+
+  let d = Math.abs(y-height.value)
+  let z = parseInt(text__textArea.value.height, 10)
+  if (y > height.value){
+      text__textArea.value.height = z + (20*d) + 'px'
+      height.value = y
+  }
+  else {
+      text__textArea.value.height = z - (20*d) + 'px'
+      height.value = y
+  }
+}, { flush: 'sync' })
+
 
 </script>
 
@@ -67,13 +62,13 @@ onMounted(() => {
     <div class="text">
 
         <div class="text__form">
-            <textarea class="text__text-area" :style="text__textArea" @keyup="size()" @input="$emit('checkText')" type="input" v-model="text" 
+            <textarea class="text__text-area" :style="text__textArea" @input="$emit('checkText')" type="input" v-model="text" 
             :minlength="minLength" :maxlength="maxLength" cols="40" rows="3" placeholder="ВВЕДИТЕ ВАШЕ СООБЩЕНИЕ В ЭТО ПОЛЕ">
             </textarea>
             <Mybutton class="text__button1" @click="manual=!manual"> ? </Mybutton>
         </div>
 
-        <AppLink :to="to" :class="buttonClass"> ПРОДОЛЖИТЬ </AppLink>
+        <AppLink :to="to" :class="[activeButton ? 'text__button2_enabled' : 'text__button2_disabled']"> ПРОДОЛЖИТЬ </AppLink>
 
     </div>
 
@@ -98,11 +93,14 @@ onMounted(() => {
     width: 60%;
 }
 
+.text__text-area
+{
+  height: 30px;
+}
+
 textarea
 {
     align-content: center;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     font-size: 20px;
     color: rgb(8, 224, 0);
@@ -152,7 +150,7 @@ textarea
   background-color: black;
   height: 60px;
   width: 200px;
-  margin-top:20px;
+  margin-top: 20px;
   pointer-events: none;
 }
 

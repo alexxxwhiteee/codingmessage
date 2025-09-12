@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import Manual from './Manual.vue'
 import Text from './Text.vue'
-import Uncodedmessage from './UncodedMessage.vue'
 import { useDataStore } from '@/stores/DataStore';
 
 const dataStore = useDataStore()
@@ -31,13 +30,11 @@ function checkText(){
     
     <div>
 
-        <div v-if="!manual">
-            <Text v-model:manual="manual" v-model:text="text" v-model:maxLength="maxLength" to="/uncodedmessage" @checkText="checkText()"></Text>
-        </div>
+    <KeepAlive>
+        
+            <Text v-if="!manual" v-model:manual="manual" v-model:text="text" v-model:maxLength="maxLength" to="/uncodedmessage" @checkText="checkText()"></Text>
 
-        <div v-else="manual">
-
-            <Manual v-model:manual="manual">
+            <Manual v-else="manual" v-model:manual="manual">
                 КОДОВОЕ ЧИСЛО УСПЕШНО СОХРАНЕНО! <br /> 
                 ДАЛЕЕ ВАМ НУЖНО ВВЕСТИ СООБЩЕНИЕ КОТОРОЕ ВЫ ХОТИТЕ РАСШИФРОВАТЬ. <br />
                 ОБРАТИТЕ ВНИМАНИЕ НА ТО, ЧТО ПОЛУЧЕННОЕ ВАМИ СООБЩЕНИЕ НЕ ДОЛЖНО БЫТЬ ДЛИННЕЕ 400 СИМВОЛОВ, НЕ ДОЛЖНО НАЧИНАТЬСЯ С ЗАПЯТОЙ ИЛИ ПРОБЕЛА И ДОЛЖНО СОСТОЯТЬ ТОЛЬКО ИЗ: <br /> 
@@ -48,7 +45,7 @@ function checkText(){
                 </ul>
             </Manual>
 
-        </div>
+    </KeepAlive>
 
     </div>
 
