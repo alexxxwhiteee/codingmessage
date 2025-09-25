@@ -31,4 +31,10 @@
    border: 1px solid rgb(8, 224, 0);
 }
 
+.my-button:active
+{
+   color: black;
+   background-color: rgb(8, 224, 0);
+}
+
 </style>

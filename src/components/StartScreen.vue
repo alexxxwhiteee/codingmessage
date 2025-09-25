@@ -5,7 +5,7 @@ import AppLink from './AppLink.vue';
 
 <template>
 
-  <div class="start-screen no-dark">
+  <div class="start-screen">
 
     <div class="ss__buttons">
       <AppLink to="/codingmessage" class="ss__button1"> ЗАШИФРОВАТЬ СООБЩЕНИЕ </AppLink>
@@ -41,7 +41,7 @@ import AppLink from './AppLink.vue';
   justify-content: space-evenly;
   align-items: center;
   animation-name: Appearance;
-  /* animation-duration: 2.8s; */
+  animation-duration: 2.8s;
   transition-timing-function: ease-in-out;
 }
 

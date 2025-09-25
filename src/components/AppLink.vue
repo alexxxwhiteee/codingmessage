@@ -26,4 +26,11 @@
     background-color: black;
     border: 1px solid rgb(8, 224, 0);
 }
+
+.router-btn:active
+{
+   color: black;
+   background-color: rgb(8, 224, 0);
+}
+
 </style>

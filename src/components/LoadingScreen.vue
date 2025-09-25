@@ -1,15 +1,18 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import Mybutton from './MyButton.vue'
 
-// const loadingProcess = ref(false)
-const loadingProcess = ref(true)
+const loadingProcess = ref(false)
 
 const count = ref(0)
 
 const dots = ref('')
 
 const text = 'ОБРАБОТКА ДАННЫХ'
+
+let counter = null
+
+let z = null
 
 function persentsCounter(){
     let x = setInterval(function(){
@@ -22,20 +25,26 @@ function persentsCounter(){
 
 function loadingMessage(){
     let y = setInterval(function(){
-        dots.value=dots.value+'.'
-    if (dots.value == '....'){
+        dots.value=dots.value + '.'
+    if (dots.value.length > 3){
         dots.value = ''
         }
     if (count.value == 100){
-     let z = setTimeout( function() {
+      z = setTimeout( function() {
+        clearInterval(y)
         loadingProcess.value = true }, 2000)
     }
         }, 400)
 }
 
 onMounted(() => { 
-    loadingMessage(),
-    setTimeout(persentsCounter, 2000)
+    loadingMessage()
+    counter = setTimeout(persentsCounter, 2000)
+})
+
+onUnmounted(() => {
+  if (counter) clearTimeout(counter)
+  if (z) clearTimeout(z)
 })
 
 </script>
@@ -145,6 +154,12 @@ onMounted(() => {
     color: rgb(8, 224, 0);
     background-color: black;
     border: 1px solid rgb(8, 224, 0);
+}
+
+.ls__button-active:active
+{
+   color: black;
+   background-color: rgb(8, 224, 0);
 }
 
 </style>
