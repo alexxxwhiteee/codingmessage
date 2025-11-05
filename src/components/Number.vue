@@ -46,26 +46,6 @@ watch (number, () => {
   dataStore.number = sum
 }, { flush: 'sync' })
 
-
-// watch (number, (newValue) => {
-//   let cleaned = Array.from(newValue).filter(symbol => numberSymbols.includes(symbol)).join('')
-//   if (newValue !== cleaned) {
-//     number.value = cleaned
-//   }
-//   for( let i = 0; i < numberSymbols.length; i++){
-//  if (number.value[0] == 0 || number.value.length == 0){
-//           number.value=''
-//     }
-//   }
-
-//   let currentValue = number.value
-//   let sum = currentValue.split('').map(item => +item).reduce((acc, number) => acc + number)
-//   while (sum > 52){
-//     sum = sum.toString().split('').map(item => +item).reduce((acc, number) => acc + number)
-//   }
-//   dataStore.number = sum
-// }, { flush: 'sync' })
-
 </script>
 
 <template>
